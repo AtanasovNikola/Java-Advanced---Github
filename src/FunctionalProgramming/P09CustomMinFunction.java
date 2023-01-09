@@ -9,7 +9,7 @@ public class P09CustomMinFunction {
         Scanner scanner = new Scanner(System.in);
 
         int[] numArray = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-        Function<int[], Object> func = e-> Arrays.stream(numArray).min().getAsInt();
+        Function<int[], Integer> func = e-> Arrays.stream(numArray).min().getAsInt();
         System.out.println(func.apply(numArray));
     }
 }
