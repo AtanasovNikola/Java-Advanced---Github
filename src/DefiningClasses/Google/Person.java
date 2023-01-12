@@ -1,16 +1,18 @@
 package DefiningClasses.Google;
 
+import java.util.List;
+
 public class Person {
     private String name;
     private Company company;
     private Car car;
-    private Pokemon pokemon;
-    private Parents parents;
-    private Children children;
+    private List<Pokemon> pokemon;
+    private List<Parents> parents;
+    private List<Children> children;
 
 
 
-    public Person(String name, Company company, Car car, Pokemon pokemon,Parents parents, Children children) {
+    public Person(String name, Company company, Car car, List<Pokemon> pokemon,List<Parents> parents, List<Children> children) {
         this.name = name;
         this.company = company;
         this.car = car;
@@ -43,27 +45,27 @@ public class Person {
         this.car = car;
     }
 
-    public Parents getParents() {
+    public List<Parents> getParents() {
         return parents;
     }
 
-    public void setParents(Parents parents) {
+    public void setParents(List<Parents> parents) {
         this.parents = parents;
     }
 
-    public Children getChildren() {
+    public List<Children> getChildren() {
         return children;
     }
 
-    public void setChildren(Children children) {
+    public void setChildren(List<Children> children) {
         this.children = children;
     }
 
-    public Pokemon getPokemon() {
+    public List<Pokemon> getPokemon() {
         return pokemon;
     }
 
-    public void setPokemon(Pokemon pokemon) {
+    public void setPokemon(List<Pokemon> pokemon) {
         this.pokemon = pokemon;
     }
 

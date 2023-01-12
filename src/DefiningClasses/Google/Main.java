@@ -1,8 +1,7 @@
 package DefiningClasses.Google;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,29 +46,37 @@ public class Main {
                     break;
             }
 
-            map.putIfAbsent(name, new Person(name, company, car, pokemon, parents, children));
+            map.putIfAbsent(name, new Person(name, company, car, new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
+            if (children!=null) {
+                map.get(name).getChildren().add(children);
+            }
+            if (parents!=null) {
+                map.get(name).getParents().add(parents);
+            }
+            if (pokemon!=null) {
+                map.get(name).getPokemon().add(pokemon);
+            }
             if (map.get(name).getCar() == null && car != null) {
                 map.get(name).setCar(car);
             } else if (map.get(name).getChildren() == null && children != null) {
-                map.get(name).setChildren(children);
+                map.get(name).setChildren(map.get(name).getChildren());
             } else if (map.get(name).getPokemon() == null && pokemon != null) {
-                map.get(name).setPokemon(pokemon);
+                map.get(name).setPokemon(map.get(name).getPokemon());
             } else if (map.get(name).getCompany() == null && company != null) {
                 map.get(name).setCompany(company);
             } else if (map.get(name).getParents() == null && parents != null) {
-                map.get(name).setParents(parents);
+                map.get(name).setParents(map.get(name).getParents());
             }
 
 
             input = scanner.nextLine();
         }
-        //Parents:
-        //Children:
+
         String name = scanner.nextLine();
         Person person = map.get(name);
         System.out.println(person.getName());
         System.out.println("Company:");
-        if (person.getCompany()!=null) {
+        if (person.getCompany() != null) {
             Company company = person.getCompany();
             System.out.printf("%s %s %.2f%n", company.getCompanyName(), company.getDepartment(), company.getSalary());
         }
@@ -79,19 +86,20 @@ public class Main {
             System.out.printf("%s %s%n", car.getModel(), car.getSpeed());
         }
         System.out.println("Pokemon:");
-        if (person.getPokemon()!=null) {
-            Pokemon pokemon = person.getPokemon();
-            System.out.printf("%s %s%n", pokemon.getName(), pokemon.getType());
+
+        if (person.getPokemon() != null) {
+            List<Pokemon> pokemon = person.getPokemon();
+            pokemon.forEach(pokemon1 -> System.out.printf("%s %s%n",pokemon1.getName(),pokemon1.getType()));
         }
         System.out.println("Parents:");
-        if (person.getParents()!=null) {
-            Parents parents = person.getParents();
-            System.out.printf("%s %s%n", parents.getName(), parents.getBirthday());
+        if (person.getParents() != null) {
+            List<Parents> parents = person.getParents();
+            parents.forEach(parents1 -> System.out.printf("%s %s%n", parents1.getName(), parents1.getBirthday()));
         }
         System.out.println("Children:");
-        if (person.getChildren()!=null) {
-            Children children = person.getChildren();
-            System.out.printf("%s %s%n", children.getName(), children.getBirthday());
+        if (person.getChildren() != null) {
+            List<Children> children = person.getChildren();
+            children.forEach(children1 -> System.out.printf("%s %s%n",children1.getName(),children1.getBirthday()));
         }
     }
 }
