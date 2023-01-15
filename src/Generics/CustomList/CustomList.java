@@ -8,7 +8,11 @@ import java.util.List;
 public class CustomList<T extends Comparable<T>> {
 
     private List<T> list;
+    private Sorter<T> sorter;
 
+    public void sorter(){
+        Sorter.sort(list);
+    }
     public CustomList() {
         this.list = new ArrayList<>();
     }

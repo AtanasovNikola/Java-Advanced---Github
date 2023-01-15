@@ -40,6 +40,9 @@ public class Main {
                     int index2 = Integer.parseInt(command[2]);
                     list.swap(index1,index2);
                     break;
+                case "Sort":
+                    list.sorter();
+                    break;
             }
 
             command = scanner.nextLine().split("\\s+");
