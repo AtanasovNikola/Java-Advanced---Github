@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Box<E> {
+public class Box<E extends Comparable<E>> {
     private List<E> list;
 
     public Box() {
@@ -18,6 +18,16 @@ public class Box<E> {
 
     public void swap(int index1, int index2) {
         Collections.swap(list, index1, index2);
+    }
+
+    public int countGreater(E element) {
+        int count = 0;
+       for (E e:list){
+           if (e.compareTo(element)>0){
+               count++;
+           }
+       }
+       return count;
     }
 
     @Override

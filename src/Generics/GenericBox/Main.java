@@ -12,10 +12,9 @@ public class Main {
             String input = scanner.nextLine();
             stringBox.add(input);
         }
-        String [] swap = scanner.nextLine().split("\\s+");
-        int firstIndex = Integer.parseInt(swap[0]);
-        int secondIndex = Integer.parseInt(swap[1]);
-        stringBox.swap(firstIndex,secondIndex);
-        System.out.println(stringBox);
+       String comparedItem = scanner.nextLine();
+        int countGreater = stringBox.countGreater(comparedItem);
+        System.out.println(countGreater);
+
     }
 }
