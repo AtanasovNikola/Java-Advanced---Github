@@ -31,8 +31,16 @@ public class Main {
                 case "Print":
                     try {
                         listyIterator.print();
+                    } catch (NullPointerException e) {
+                        System.out.println("Invalid operation!");
+                    }
+                    break;
+                case "PrintAll":
+                    try {
+
+                    listyIterator.printAll();
                     }catch (NullPointerException e){
-                        System.out.println("Invalid operation");
+                        System.out.println("Invalid operation!");
                     }
                     break;
             }

@@ -28,4 +28,9 @@ public class ListyIterator {
     public void print() {
         System.out.println(this.elements.get(currentIndex));
     }
+
+    public  void printAll(){
+        String join = String.join(" ", elements);
+        System.out.println(join);
+    }
 }
